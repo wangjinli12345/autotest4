@@ -42,6 +42,7 @@ public class MyCookiesForGet {
 
         //获取cookies信息
         this.store=client.getCookieStore();
+        //getCookies会返回一个cookielist,因为cookie有很多值
         List<Cookie> cookieList = store.getCookies();
         for (Cookie cookie:cookieList){
             String name =cookie.getName();
@@ -49,6 +50,7 @@ public class MyCookiesForGet {
             System.out.println("cookie name ="+ name+";cookie value="+ value);
         }
     }
+    //依赖测试
     @Test(dependsOnMethods = {"testGetCookies"})
     public void testGetWithCookies() throws IOException {
         String uri =bundle.getString("test.get.with.cookies");
