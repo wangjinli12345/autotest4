@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 
 @EnableScheduling
 @SpringBootApplication
+//Application为启动程序
 public class Application {
     private static ConfigurableApplicationContext context;
 
@@ -18,6 +19,7 @@ public class Application {
     }
 
     @PreDestroy
+    //预摧毁方法
     public void close(){
         Application.context.close();
     }
