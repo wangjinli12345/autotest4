@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
+//告诉入口类这个类是需要被扫描托管的
 @RestController
 @Api(value = "/",description = "这是我全部的get方法" )
 public class MyGetMethod {
+    //告诉访问路径，和访问方法
     @RequestMapping(value = "/getCookies",method = RequestMethod.GET)
     @ApiOperation(value = "通过这个方法可以获取到Cookies",httpMethod = "GET")
     public String getCookies(HttpServletResponse response){
@@ -37,7 +38,7 @@ public class MyGetMethod {
         }
         for (Cookie cookie:cookies){
             if (cookie.getName().equals("login") && cookie.getValue().equals("true")){
-                return "这是一个需要携带cookies信息才能访问的get请求！";
+                return "恭喜你访问成功！";
             }
         }
         return "你必须携带cookies信息来";

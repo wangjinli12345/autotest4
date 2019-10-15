@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class MyCookiesForGet {
     private String url;
+    //用来读取配置文件的
     private ResourceBundle bundle;
     //用来存储cookies信息的变量
     private CookieStore store;
@@ -35,8 +36,10 @@ public class MyCookiesForGet {
 
         //测试逻辑代码书写
         HttpGet get = new HttpGet(testUrl);
+        //HttpClient不能获取cookies信息，所以要换成DefaultHttpClient
         DefaultHttpClient client =new DefaultHttpClient();
         HttpResponse response =client.execute(get);
+        //把返回的结果转换成字符串形式
         result = EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
 

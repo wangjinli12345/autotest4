@@ -88,8 +88,8 @@ public class MyCookiesForPost {
         String success=(String) resultJson.get("huhansan");
         String status=(String) resultJson.get("status");
         //具体的判断返回结果的值
-        Assert.assertEquals("sccess","success");
-        Assert.assertEquals("1",1);
+        Assert.assertEquals(success,"success");
+        Assert.assertEquals(status,"1");
 
     }
 }
